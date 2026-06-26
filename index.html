@@ -422,12 +422,35 @@
             <div class="info-row"><span>GitHub</span><a href="https://github.com/Priyankagit699" target="_blank">github.com/Priyankagit699</a></div>
             <p class="lead" style="font-size:15px;">Have an opportunity, project, or collaboration in mind? Send a message and I’ll get back to you soon.</p>
           </div>
-          <form class="contact-card reveal" onsubmit="sendContact(event)">
-            <input type="text" placeholder="Your name" required>
-            <input type="email" placeholder="you@example.com" required>
-            <textarea id="messageInput" placeholder="Tell me about your project or opportunity..." required></textarea>
-            <button class="btn white" type="submit">Send Message ↗</button>
-          </form>
+          <form
+  class="contact-card reveal"
+  action="https://formspree.io/f/mojodlal"
+  method="POST">
+
+  <input
+    type="text"
+    name="name"
+    placeholder="Your name"
+    required>
+
+  <input
+    type="email"
+    name="email"
+    placeholder="you@example.com"
+    required>
+
+  <textarea
+    name="message"
+    placeholder="Tell me about your project or opportunity..."
+    required></textarea>
+
+  <input
+    type="hidden"
+    name="_subject"
+    value="New Portfolio Contact Form Submission">
+
+  <button class="btn white" type="submit">Send Message ↗</button>
+</form>
         </div>
       </div>
     </section>
@@ -587,12 +610,7 @@
       setTimeout(()=>buddy.classList.remove('jump'),200);
     });
 
-    function sendContact(event){
-      event.preventDefault();
-      buddy.textContent = '✅';
-      formHelper.textContent = 'Thank you! Your message interface is ready for backend integration.';
-      alert('Thank you! For live email delivery, connect this form to EmailJS, Formspree, Web3Forms, or a secure backend API.');
-    }
+    
   </script>
 </body>
 </html>
