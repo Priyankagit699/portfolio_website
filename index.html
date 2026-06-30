@@ -136,6 +136,9 @@
     h1 .grad{display:block;background:linear-gradient(100deg,var(--text),#b9b9c9 45%,#a2ecff 80%);-webkit-background-clip:text;color:transparent}
     .hero p{color:var(--muted);max-width:650px;font-size:17px;line-height:1.68;margin-bottom:28px}
     .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+    .hero-meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:30px;color:var(--muted);font-size:13px;font-weight:800}
+    .hero-meta span{display:flex;align-items:center;gap:8px}
+    .hero-meta i{width:7px;height:7px;border-radius:50%;background:var(--accent2);box-shadow:0 0 14px var(--accent2)}
 
     .visual{
       min-height:min(500px,58vh);
@@ -201,12 +204,34 @@
     .project:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(124,92,255,.18),transparent 35%);opacity:0;transition:.2s}
     .project:hover:before{opacity:1}
     .preview{min-height:245px;border-radius:26px;border:1px solid var(--line);background:linear-gradient(135deg,var(--panel2),var(--panel));display:grid;place-items:center;position:relative;overflow:hidden}
+    .project-image{width:100%;height:100%;min-height:245px;object-fit:cover;display:block;transition:transform .55s cubic-bezier(.2,.8,.2,1),filter .35s}
+    .preview:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 55%,rgba(124,92,255,.2));pointer-events:none}
+    .project:hover .project-image{transform:scale(1.055);filter:saturate(1.12) contrast(1.03)}
+    .projects .project .preview{
+      min-height:0;
+      aspect-ratio:16/9;
+      background-color:#08080c;
+      background-position:center;
+      background-size:contain;
+      background-repeat:no-repeat;
+      transition:filter .35s ease,transform .45s cubic-bezier(.2,.8,.2,1);
+    }
+    .projects .project:nth-child(1) .preview{background-image:url("assets/portfolio-preview.png")}
+    .projects .project:nth-child(2) .preview{background-image:url("assets/talenttrack-preview.png")}
+    .projects .project:nth-child(3) .preview{background-image:url("assets/global-estate-preview.png")}
+    .projects .project:nth-child(4) .preview{background-image:url("assets/weather-preview.svg")}
+    .projects .project .preview .browser{display:none}
+    .projects .project:hover .preview{filter:saturate(1.08) brightness(1.04)}
     .browser{width:86%;height:74%;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--bg);transform:translateY(18px);transition:.3s;box-shadow:0 25px 70px rgba(0,0,0,.25)}
     .project:hover .browser{transform:translateY(0) scale(1.04)}
     .browser-top{height:34px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:7px;padding:0 12px}
     .browser-body{padding:16px}.browser-line{height:12px;border-radius:999px;background:rgba(255,255,255,.12);margin:10px 0}.browser-line:nth-child(1){width:80%;background:linear-gradient(90deg,var(--accent),var(--accent2))}.browser-line:nth-child(2){width:52%}
     .browser-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.browser-box{height:48px;border-radius:12px;background:rgba(255,255,255,.08)}
     .project-content{position:relative}.project-content small{color:var(--accent2);font-weight:950}.project h3{font-size:34px;margin:10px 0 14px;letter-spacing:-.045em}.project p,.project li{color:var(--muted);line-height:1.75}.project ul{margin:15px 0 20px 18px}.tags{display:flex;flex-wrap:wrap;gap:10px}.tags span{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.05);font-size:12px;font-weight:950}
+    .project-actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:22px}
+    .project-actions .btn{padding:11px 17px;font-size:13px}
+    .project-num{position:absolute;right:22px;top:16px;font-size:74px;font-weight:950;letter-spacing:-.08em;color:rgba(255,255,255,.035);line-height:1}
+    html[data-theme="light"] .project-num{color:rgba(0,0,0,.045)}
 
     .timeline{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
     .time-card{border:1px solid var(--line);background:rgba(255,255,255,.045);border-radius:28px;padding:30px;min-height:250px;transition:.25s;position:relative;overflow:hidden}
@@ -245,7 +270,7 @@
     }
     @media(max-width:620px){
       header{width:94vw;padding:12px}
-      .brand span:last-child{display:none}
+      .brand{font-size:15px}
       .nav-actions{gap:7px}
       .social-btn{display:none}
       .btn{padding:13px 17px}
@@ -258,6 +283,7 @@
       .orb{font-size:11px;padding:9px 12px}
       .o5,.o6,.o8{display:none}
       .project{padding:18px}
+      .project-num{font-size:54px;right:16px}
       .preview{min-height:190px}
       .bubble{width:112px;height:112px;border-radius:26px}
       .bubble img{width:34px;height:34px}
@@ -305,7 +331,11 @@
           <div class="pill"><span class="pulse"></span> Available for opportunities</div>
           <h1>Hi, I’m Priyanka  <span class="grad">Building the future with clean code.</span></h1>
           <p>Developer passionate about building beautiful, scalable, responsive and user-friendly web applications using React, JavaScript and modern web technologies.</p>
-          
+          <div class="hero-actions">
+            <a class="btn white" href="#projects">Explore my work ↓</a>
+            <a class="btn" href="mailto:priyankakumari95800@gmail.com">Let’s connect ↗</a>
+          </div>
+          <div class="hero-meta"><span><i></i>Based in India</span><span><i></i>Open to opportunities</span><span><i></i>B.Tech CSE · 2026</span></div>
         </div>
 
         <div class="visual reveal" id="heroVisual">
@@ -393,9 +423,10 @@
       <div class="container">
         <div class="section-head reveal"><span class="eyebrow">04 · Selected Work</span><div><h2>Projects I've shipped.</h2><p class="lead">A focused showcase of responsive web applications, API integrations, and clean interface development.</p></div></div>
         <div class="projects">
-          <article class="project reveal"><div class="preview"><div class="browser"><div class="browser-top"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div><div class="browser-body"><div class="browser-line"></div><div class="browser-line"></div><div class="browser-grid"><div class="browser-box"></div><div class="browser-box"></div></div></div></div></div><div class="project-content"><small>Project / 01</small><h3>Personal Portfolio Website</h3><p>A responsive, component-driven portfolio built with React. Focused on reusable architecture, modern UI structure, and performance-first rendering.</p><ul><li>Reusable React components</li><li>Mobile-first responsive UI</li><li>Performance optimisations</li><li>Modern visual structure</li></ul><div class="tags"><span>React.js</span><span>HTML</span><span>CSS</span><span>JavaScript</span></div></div></article>
-          <article class="project reveal"><div class="preview"><div class="browser"><div class="browser-top"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div><div class="browser-body"><div class="browser-line"></div><div class="browser-line"></div><div class="browser-grid"><div class="browser-box"></div><div class="browser-box"></div></div></div></div></div><div class="project-content"><small>Project / 02</small><h3>Online Examination System</h3><p>A web-based examination system with user authentication, role-based access, exam creation, question management and automatic result evaluation.</p><ul><li>User authentication and RBAC</li><li>Exam and question management</li><li>Automatic result evaluation</li><li>Structured MySQL database schema</li></ul><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>MySQL</span></div></div></article>
-          <article class="project reveal"><div class="preview"><div class="browser"><div class="browser-top"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div><div class="browser-body"><div class="browser-line"></div><div class="browser-line"></div><div class="browser-grid"><div class="browser-box"></div><div class="browser-box"></div></div></div></div></div><div class="project-content"><small>Project / 03</small><h3>Weather App</h3><p>A responsive React weather interface that integrates OpenWeather REST API with async state management and clean UI design.</p><ul><li>Real-time temperature, humidity and wind</li><li>Async data via React state</li><li>Reusable components</li><li>Responsive layout</li></ul><div class="tags"><span>React.js</span><span>OpenWeather API</span><span>REST</span><span>CSS</span></div></div></article>
+          <article class="project reveal"><span class="project-num">01</span><div class="preview"><div class="browser"><div class="browser-top"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div><div class="browser-body"><div class="browser-line"></div><div class="browser-line"></div><div class="browser-grid"><div class="browser-box"></div><div class="browser-box"></div></div></div></div></div><div class="project-content"><small>Featured project / 01</small><h3>Portfolio Website</h3><p>A polished personal portfolio presenting projects, technical skills, and experience through a responsive modern interface.</p><ul><li>Responsive, recruiter-friendly experience</li><li>Modern visual hierarchy and interactions</li><li>Fast Vercel deployment</li></ul><div class="tags"><span>React.js</span><span>HTML</span><span>CSS</span><span>JavaScript</span></div><div class="project-actions"><a class="btn white" href="https://portfolio-website-32.vercel.app/" target="_blank" rel="noopener">Live site ↗</a><a class="btn" href="https://github.com/Priyankagit699/portfolio_website" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
+          <article class="project reveal"><span class="project-num">02</span><div class="preview"><div class="browser"><div class="browser-top"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div><div class="browser-body"><div class="browser-line"></div><div class="browser-line"></div><div class="browser-grid"><div class="browser-box"></div><div class="browser-box"></div></div></div></div></div><div class="project-content"><small>Featured project / 02</small><h3>TalentTrack</h3><p>A focused talent and recruitment platform designed to make discovering, organizing, and tracking candidates feel effortless.</p><ul><li>Clean candidate management workflow</li><li>Responsive application interface</li><li>Deployed production experience</li></ul><div class="tags"><span>React.js</span><span>JavaScript</span><span>CSS</span><span>Vercel</span></div><div class="project-actions"><a class="btn white" href="https://talenttrack-eight.vercel.app/" target="_blank" rel="noopener">Live site ↗</a><a class="btn" href="https://github.com/Priyankagit699/talenttrack" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
+          <article class="project reveal"><span class="project-num">03</span><div class="preview"><div class="browser"><div class="browser-top"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div><div class="browser-body"><div class="browser-line"></div><div class="browser-line"></div><div class="browser-grid"><div class="browser-box"></div><div class="browser-box"></div></div></div></div></div><div class="project-content"><small>Featured project / 03</small><h3>Global Estate</h3><p>A modern real-estate browsing experience for exploring properties through a clear, visual, and responsive interface.</p><ul><li>Property-focused discovery experience</li><li>Modern card-based layout</li><li>Responsive design across screen sizes</li></ul><div class="tags"><span>Next.js</span><span>JavaScript</span><span>CSS</span><span>Vercel</span></div><div class="project-actions"><a class="btn white" href="https://global-estate-five.vercel.app/" target="_blank" rel="noopener">Live site ↗</a><a class="btn" href="https://github.com/Priyankagit699/Global_Estate" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
+          <article class="project reveal"><span class="project-num">04</span><div class="preview"><div class="browser"><div class="browser-top"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div><div class="browser-body"><div class="browser-line"></div><div class="browser-line"></div><div class="browser-grid"><div class="browser-box"></div><div class="browser-box"></div></div></div></div></div><div class="project-content"><small>Project / 04</small><h3>Weather App</h3><p>A responsive React weather interface that integrates the OpenWeather REST API with asynchronous state management and a clean UI.</p><ul><li>Real-time temperature, humidity, and wind</li><li>Asynchronous API data handling</li><li>Reusable responsive components</li></ul><div class="tags"><span>React.js</span><span>OpenWeather API</span><span>REST</span><span>CSS</span></div><div class="project-actions"><a class="btn" href="https://github.com/Priyankagit699?tab=repositories&q=weather" target="_blank" rel="noopener">View on GitHub ↗</a></div></div></article>
         </div>
       </div>
     </section>
@@ -572,14 +603,14 @@
       beep();
     });
 
-    soundToggle.addEventListener('click',()=>{
+    soundToggle?.addEventListener('click',()=>{
       soundOn = !soundOn;
       soundToggle.textContent = soundOn ? '♫' : '♪';
       beep();
     });
 
     bubbles.forEach(bubble=>bubble.addEventListener('click',()=>{
-      formHelper.textContent = bubble.innerText.trim() + ' selected — nice choice!';
+      if(formHelper) formHelper.textContent = bubble.innerText.trim() + ' selected — nice choice!';
       bubble.style.boxShadow = '0 0 0 10px rgba(124,92,255,.10), 0 25px 60px rgba(0,0,0,.28)';
       setTimeout(()=> bubble.style.boxShadow = '', 600);
     }));
@@ -602,12 +633,11 @@
       beep();
     }
 
-    messageInput.addEventListener('input',()=>{
+    messageInput?.addEventListener('input',()=>{
       const len = messageInput.value.length;
-      buddy.textContent = len > 80 ? '🚀' : len > 35 ? '😊' : len > 0 ? '👀' : '👋';
-      buddy.classList.add('jump');
-      formHelper.textContent = len > 80 ? 'Great detail! This message looks ready.' : 'Keep typing — I am listening.';
-      setTimeout(()=>buddy.classList.remove('jump'),200);
+      if(buddy){ buddy.textContent = len > 80 ? '🚀' : len > 35 ? '😊' : len > 0 ? '👀' : '👋'; buddy.classList.add('jump'); }
+      if(formHelper) formHelper.textContent = len > 80 ? 'Great detail! This message looks ready.' : 'Keep typing — I am listening.';
+      setTimeout(()=>buddy?.classList.remove('jump'),200);
     });
 
     
